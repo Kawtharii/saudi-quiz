@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>منصة المسابقة التفاعلية للتاريخ السعودي | الصف السادس الابتدائي</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+  <style>
+/* ==============================================================
+   منصة المسابقة التفاعلية للتاريخ السعودي
+   تصميم مبهج وراقي بألوان الباستيل الهادئة والمحفزة
+   موجه لطالبات الصف السادس الابتدائي
+   ============================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+:root {
+  /* درجات ألوان باستيل مبهجة ومتنوعة */
+  --pastel-mint: #78C2AD;
+  --pastel-mint-light: #EBF8F5;
+  --pastel-coral: #F69480;
+  --pastel-coral-light: #FDF0ED;
+  --pastel-lavender: #9D8DF1;
+  --pastel-lavender-light: #F3F1FD;
+  --pastel-peach: #F6AA73;
+  --pastel-peach-light: #FDF3EC;
+  --pastel-sky: #6CB2EB;
+  --pastel-sky-light: #EAF4FD;
+  --pastel-lemon: #F6D860;
+  --pastel-lemon-light: #FFFBEB;
+  --pastel-sand: #C99A6B;
+  --pastel-sand-light: #FAF4EE;
+  --pastel-rose: #F38BA8;
+  --pastel-rose-light: #FDF0F4;
+
+  /* ألوان الخلفية والنصوص */
+  --bg-main: #FAF8F5;
+  --bg-card: rgba(255, 255, 255, 0.95);
+  --text-dark: #2D3748;
+  --text-muted: #718096;
+  --text-light: #A0AEC0;
+  --border-soft: rgba(0, 0, 0, 0.07);
+
+  /* ألوان النجاح والخطأ الهادئة */
+  --status-success: #48BB78;
+  --status-success-light: #E6FFFA;
+  --status-error: #F56565;
+  --status-error-light: #FFF5F5;
+
+  /* تأثيرات الظلال */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 18px 42px rgba(0, 0, 0, 0.12);
+
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+}
+
+/* التنسيق الأساسي */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Tajawal', 'Cairo', sans-serif;
+  background-color: var(--bg-main);
+  background-image: 
+    radial-gradient(circle at 12% 18%, rgba(246, 170, 115, 0.14) 0%, transparent 40%),
+    radial-gradient(circle at 88% 12%, rgba(120, 194, 173, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 50% 85%, rgba(157, 141, 241, 0.13) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(246, 216, 96, 0.12) 0%, transparent 35%);
+  background-attachment: fixed;
+  color: var(--text-dark);
+  min-height: 100vh;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* كانفاس المؤثرات الاحتفالية */
+#celebration-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.app-container {
+  max-width: 1020px;
+  margin: 0 auto;
+  padding: 24px 20px 48px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ==============================================================
+   الهيدر وشريط التحكم العلوي
+   ============================================================== */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 14px 24px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-soft);
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-icon {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(135deg, var(--pastel-mint), var(--pastel-sky));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  box-shadow: 0 4px 10px rgba(120, 194, 173, 0.3);
+}
+
+.brand-text h1 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.brand-text p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.control-btn {
+  background: #FFF;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-full);
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.control-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--pastel-mint);
+}
+
+.control-btn.muted {
+  background: #F7FAFC;
+  color: var(--text-muted);
+}
+
+/* ==============================================================
+   نظام إدارة الشاشات (Screen Views)
+   ============================================================== */
+.screen-view {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.screen-view.active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ==============================================================
+   1. الصفحة الترحيبية (Landing Screen)
+   ============================================================== */
+.landing-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  padding: 60px 36px 54px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(90deg, 
+    var(--pastel-coral), 
+    var(--pastel-lemon), 
+    var(--pastel-mint), 
+    var(--pastel-sky), 
+    var(--pastel-lavender)
+  );
+}
+
+.hero-illustration {
+  margin: 0 auto 24px;
+  max-width: 160px;
+  animation: floatIllustration 4s ease-in-out infinite;
+}
+
+@keyframes floatIllustration {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.landing-title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #1A202C;
+  line-height: 1.35;
+}
+
+.landing-title span {
+  background: linear-gradient(135deg, #2E8B57, #1E6F5C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.primary-btn {
+  background: linear-gradient(135deg, var(--pastel-coral), #E2725B);
+  color: #FFF;
+  border: none;
+  font-family: inherit;
+  font-size: 1.35rem;
+  font-weight: 800;
+  padding: 18px 56px;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 12px 28px rgba(246, 148, 128, 0.45);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 18px 36px rgba(246, 148, 128, 0.55);
+}
+
+.primary-btn:active {
+  transform: translateY(-1px);
+}
+
+/* ==============================================================
+   2. شبكة اختيار الأسئلة الأصلية (Question Board Screen)
+   ============================================================== */
+.board-header-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border-soft);
+}
+
+.board-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.board-title h2 {
+  font-size: 1.55rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.board-title p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.progress-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+
+.progress-track {
+  width: 100%;
+  height: 12px;
+  background: #EDF2F7;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--pastel-mint), var(--pastel-sky));
+  border-radius: var(--radius-full);
+  transition: width 0.5s ease;
+}
+
+/* شبكة البطاقات (8 بطاقات متجاوبة ومتقنة) */
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.question-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  border: 2px solid transparent;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+}
+
+.question-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 6px;
+  background: var(--card-theme-color, var(--pastel-mint));
+}
+
+.question-card.available:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--card-theme-color);
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.card-number-circle {
+  width: 66px;
+  height: 66px;
+  border-radius: 50%;
+  background: var(--card-light-color, var(--pastel-mint-light));
+  color: var(--card-accent-color, var(--pastel-mint));
+  font-size: 1.9rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.question-card.available:hover .card-number-circle {
+  transform: scale(1.12);
+}
+
+.card-info .card-title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 4px;
+}
+
+.card-info .card-subtitle {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.card-status-pill {
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 4px 14px;
+  border-radius: var(--radius-full);
+}
+
+.card-status-pill.available {
+  background: #F7FAFC;
+  color: var(--text-muted);
+}
+
+.card-status-pill.completed {
+  background: var(--status-success-light);
+  color: #276749;
+}
+
+/* حالة التظليل والتجميد للسؤال المحلول */
+.question-card.completed.disabled {
+  opacity: 0.65;
+  background: #F7FAFC;
+  cursor: not-allowed;
+  box-shadow: var(--shadow-sm);
+  border: 1px dashed #CBD5E0;
+}
+
+.question-card.completed.disabled::before {
+  background: #A0AEC0;
+}
+
+.question-card.completed.disabled .card-number-circle {
+  background: #EDF2F7;
+  color: #718096;
+}
+
+/* ==============================================================
+   3. شاشة عرض السؤال والخيارات (Question View)
+   ============================================================== */
+.question-view-wrapper {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+.question-view-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
+  padding: 38px 32px;
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--border-soft);
+  position: relative;
+}
+
+.question-header-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.q-number-pill {
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  color: #FFF;
+  font-weight: 800;
+  font-size: 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.attempt-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.attempt-first {
+  background: var(--pastel-sky-light);
+  color: #2B6CB0;
+}
+
+.attempt-second {
+  background: var(--pastel-coral-light);
+  color: #C53030;
+  animation: pulseAttempt 2s infinite;
+}
+
+@keyframes pulseAttempt {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3182CE;
+}
+
+.pulse-dot.warning {
+  background: #E53E3E;
+}
+
+.question-prompt {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: #1A202C;
+  line-height: 1.5;
+  margin-bottom: 32px;
+  padding: 20px 24px;
+  background: #FBFDFD;
+  border-radius: var(--radius-md);
+  border-right: 6px solid var(--pastel-mint);
+  box-shadow: var(--shadow-sm);
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-bottom: 28px;
+}
+
+.option-btn {
+  background: #FFF;
+  border: 2px solid #EDF2F7;
+  border-radius: var(--radius-md);
+  padding: 20px 22px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-align: right;
+  transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: var(--shadow-sm);
+}
+
+.option-btn:hover:not(:disabled) {
+  border-color: var(--pastel-sky);
+  background: var(--pastel-sky-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.option-letter {
+  width: 42px;
+  height: 42px;
+  background: #F7FAFC;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: all 0.25s ease;
+}
+
+.option-btn:hover:not(:disabled) .option-letter {
+  background: var(--pastel-sky);
+  color: #FFF;
+}
+
+.option-text {
+  flex: 1;
+}
+
+.option-btn.correct {
+  background: var(--status-success-light) !important;
+  border-color: var(--status-success) !important;
+  color: #22543D !important;
+  box-shadow: 0 8px 20px rgba(72, 187, 120, 0.25);
+  animation: correctPulse 0.6s ease;
+}
+
+.option-btn.correct .option-letter {
+  background: var(--status-success);
+  color: #FFF;
+}
+
+@keyframes correctPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.option-btn.incorrect {
+  background: var(--status-error-light) !important;
+  border-color: var(--status-error) !important;
+  color: #742A2A !important;
+  opacity: 0.7;
+  cursor: not-allowed;
+  animation: shakeWrong 0.5s ease;
+}
+
+.option-btn.incorrect .option-letter {
+  background: var(--status-error);
+  color: #FFF;
+}
+
+@keyframes shakeWrong {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-8px); }
+  40%, 80% { transform: translateX(8px); }
+}
+
+.feedback-card {
+  display: none;
+  border-radius: var(--radius-md);
+  padding: 24px 28px;
+  margin-top: 20px;
+  border: 1px solid transparent;
+  animation: slideFeedback 0.35s ease forwards;
+}
+
+.feedback-card.show {
+  display: block;
+}
+
+@keyframes slideFeedback {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-card.correct {
+  background: linear-gradient(135deg, #F0FFF4, #DCFCE7);
+  border-color: #86EFAC;
+}
+
+.feedback-card.incorrect-retry {
+  background: linear-gradient(135deg, #FFFBEB, #FEF3C7);
+  border-color: #FCD34D;
+}
+
+.feedback-card.incorrect-final {
+  background: linear-gradient(135deg, #FEF2F2, #FEE2E2);
+  border-color: #FCA5A5;
+}
+
+.feedback-header h4 {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.feedback-card.correct .feedback-header h4 { color: #166534; }
+.feedback-card.incorrect-retry .feedback-header h4 { color: #92400E; }
+.feedback-card.incorrect-final .feedback-header h4 { color: #991B1B; }
+
+.feedback-body p {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.feedback-explanation {
+  font-size: 0.95rem;
+  color: #4B5563;
+  margin-top: 6px;
+  line-height: 1.6;
+}
+
+.feedback-footer {
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.secondary-btn {
+  background: #FFF;
+  border: 1px solid #CBD5E0;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-family: inherit;
+  color: var(--text-dark);
+  cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--pastel-mint);
+}
+
+.top-back-btn {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 16px;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s ease;
+}
+
+.top-back-btn:hover {
+  background: #FFF;
+  color: var(--text-dark);
+}
+
+/* ==============================================================
+   4. شاشة النهاية: البطاقة الختامية الأنيقة (Final Closing Card)
+   ============================================================== */
+.final-celebration-container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.celebration-banner-hero {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.celebration-icon-anim {
+  font-size: 3.8rem;
+  display: inline-block;
+  animation: celebrateBounce 1.5s ease infinite alternate;
+}
+
+@keyframes celebrateBounce {
+  from { transform: translateY(0) scale(1); }
+  to { transform: translateY(-10px) scale(1.08); }
+}
+
+.celebration-banner-hero h2 {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #1A202C;
+  margin-top: 6px;
+}
+
+.celebration-banner-hero p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+/* البطاقة الختامية الأنيقة */
+.elegant-closing-card {
+  background: #FFF;
+  border-radius: var(--radius-lg);
+  padding: 44px 38px 36px;
+  box-shadow: var(--shadow-lg);
+  border: 3px solid rgba(201, 154, 107, 0.35);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 28px;
+}
+
+.closing-card-top-decor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.decor-symbol {
+  color: var(--pastel-sand);
+  font-size: 1.3rem;
+}
+
+.decor-line {
+  height: 2px;
+  width: 120px;
+  background: linear-gradient(90deg, transparent, var(--pastel-sand), transparent);
+}
+
+.closing-card-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.closing-emblem {
+  width: 58px;
+  height: 58px;
+  margin: 0 auto 12px;
+  background: linear-gradient(135deg, var(--pastel-mint-light), #D1EFE7);
+  border: 2px solid var(--pastel-mint);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 0 4px 14px rgba(120, 194, 173, 0.25);
+}
+
+.closing-platform-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #2D3748;
+}
+
+.closing-card-content {
+  background: #FAF8F5;
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.closing-info-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 10px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.closing-info-item .info-label {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #4A5568;
+}
+
+.closing-info-item .info-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #1A202C;
+}
+
+.closing-info-item.student-item {
+  background: #FFF;
+  border-radius: var(--radius-sm);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(120, 194, 173, 0.35);
+}
+
+.highlight-student {
+  font-size: 1.65rem !important;
+  font-weight: 900 !important;
+  color: #1A365D !important;
+}
+
+.grade-subtext {
+  display: block;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #2B6CB0;
+  margin-top: 2px;
+}
+
+.closing-divider {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  margin: 6px 0;
+}
+
+.closing-card-footer {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.closing-stamp {
+  display: inline-block;
+  padding: 6px 22px;
+  background: var(--pastel-mint-light);
+  color: #22543D;
+  border-radius: var(--radius-full);
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: 1px dashed var(--pastel-mint);
+}
+
+.final-actions-panel {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+/* ==============================================================
+   التجاوب مع الشاشات (Responsive)
+   ============================================================== */
+@media (max-width: 900px) {
+  .questions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .questions-grid {
+    grid-template-columns: 1fr;
+  }
+  .landing-card {
+    padding: 38px 20px;
+  }
+  .landing-title {
+    font-size: 1.85rem;
+  }
+  .primary-btn {
+    font-size: 1.15rem;
+    padding: 14px 38px;
+  }
+  .closing-info-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .options-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+</style>
+</head>
+<body>
+
+  <!-- كانفاس المؤثرات البصرية الاحتفالية (قصاصات ملونة وبالونات طافية) -->
+  <canvas id="celebration-canvas"></canvas>
+
+  <div class="app-container">
+    <!-- شريط التحكم العلوي -->
+    <header class="app-header">
+      <div class="brand-wrapper">
+        <div class="brand-icon">🌴</div>
+        <div class="brand-text">
+          <h1>مسابقة التاريخ السعودي</h1>
+          <p>الصف السادس الابتدائي</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <button id="sound-toggle-btn" class="control-btn" title="التحكم بالصوت">
+          <span class="icon">🔊</span>
+          <span class="text">تشغيل الصوت</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ==============================================================
+         1. الصفحة الترحيبية (Landing Screen)
+         ============================================================== -->
+    <main id="landing-screen" class="screen-view active">
+      <div class="landing-card">
+        <div class="hero-illustration">
+          <svg viewBox="0 0 200 200" width="160" height="160" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="100" cy="100" r="90" fill="#EBF8F5" stroke="#78C2AD" stroke-width="3" stroke-dasharray="6 6"/>
+            <!-- قصر سلوى وتراث الدرعية -->
+            <path d="M40 145 H160 V155 H40 Z" fill="#C99A6B"/>
+            <path d="M50 145 V100 H80 V145 Z" fill="#E8D1B5"/>
+            <path d="M80 145 V80 H120 V145 Z" fill="#DDBF9E"/>
+            <path d="M120 145 V105 H150 V145 Z" fill="#E8D1B5"/>
+            <!-- شرفات قصر الطريف النجدية المثلثة -->
+            <polygon points="50,100 55,92 60,100" fill="#C99A6B"/>
+            <polygon points="60,100 65,92 70,100" fill="#C99A6B"/>
+            <polygon points="70,100 75,92 80,100" fill="#C99A6B"/>
+            <polygon points="80,80 88,70 96,80" fill="#B88450"/>
+            <polygon points="96,80 104,70 112,80" fill="#B88450"/>
+            <polygon points="104,80 112,70 120,80" fill="#B88450"/>
+            <!-- نخلة باسقة -->
+            <path d="M100 120 Q98 100 100 85" stroke="#8D5B4C" stroke-width="4" stroke-linecap="round"/>
+            <path d="M100 85 Q75 75 65 90" stroke="#48BB78" stroke-width="3" stroke-linecap="round"/>
+            <path d="M100 85 Q125 75 135 90" stroke="#48BB78" stroke-width="3" stroke-linecap="round"/>
+            <path d="M100 85 Q85 60 75 65" stroke="#38A169" stroke-width="3" stroke-linecap="round"/>
+            <path d="M100 85 Q115 60 125 65" stroke="#38A169" stroke-width="3" stroke-linecap="round"/>
+            <!-- نجوم ذهبية -->
+            <circle cx="45" cy="55" r="4" fill="#F6D860"/>
+            <circle cx="155" cy="50" r="5" fill="#F6D860"/>
+            <circle cx="165" cy="110" r="3" fill="#F69480"/>
+          </svg>
+        </div>
+
+        <h2 class="landing-title">
+          مرحباً بكِ في <span>مسابقة التاريخ السعودي</span>
+        </h2>
+
+        <div style="margin-top: 36px;">
+          <button id="btn-start-quiz" class="primary-btn">
+            <span>ابدأي المسابقة الآن 🚀</span>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- ==============================================================
+         2. شبكة اختيار الأسئلة (Board Screen - النظام الأصلي المضبوط)
+         ============================================================== -->
+    <section id="board-screen" class="screen-view">
+      <div class="board-header-panel">
+        <div class="board-header-top">
+          <div class="board-title">
+            <h2>لوحة اختيار الأسئلة (1 - 8)</h2>
+            <p>انقري على أي رقم لبدء السؤال، وعند إجابته يتم تظليله وتجميده تلقائياً</p>
+          </div>
+          <!-- زر اختياري للاختيار العشوائي السريع لمن يحب الحماس -->
+          <button id="btn-random-pick" class="control-btn" style="background: var(--pastel-mint-light); border-color: var(--pastel-mint); font-weight: 700;">
+            <span>🎲 اختيار سؤال عشوائي</span>
+          </button>
+        </div>
+        <div class="progress-container">
+          <div class="progress-info">
+            <span id="board-progress-text">تم إنجاز 0 من أصل 8 أسئلة (0%)</span>
+            <span>الهدف: إتمام كافة الأسئلة 🎯</span>
+          </div>
+          <div class="progress-track">
+            <div id="board-progress-bar" class="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- شبكة بطاقات الأسئلة الثمانية -->
+      <div id="questions-grid" class="questions-grid">
+        <!-- يتم ملء البطاقات تلقائياً بواسطة JavaScript -->
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         3. شاشة عرض السؤال والخيارات (Question View Screen)
+         ============================================================== -->
+    <section id="question-screen" class="screen-view">
+      <div class="question-view-wrapper">
+        <button id="btn-back-to-board" class="top-back-btn">
+          <span>←</span> العودة إلى شبكة الأسئلة
+        </button>
+
+        <div class="question-view-card">
+          <div class="question-header-meta">
+            <div id="q-number-badge" class="q-number-pill">السؤال رقم 1</div>
+            <div id="q-attempt-badge" class="attempt-badge attempt-first">
+              <span class="pulse-dot"></span> المحاولة الأولى (لديكِ محاولتان)
+            </div>
+          </div>
+
+          <h3 id="q-title-text" class="question-prompt">
+            جاري تحميل نص السؤال...
+          </h3>
+
+          <!-- الخيارات الأربعة -->
+          <div id="q-options-container" class="options-grid">
+            <!-- يتم توليد الخيارات الأربعة تلقائياً -->
+          </div>
+
+          <!-- بطاقة التغذية الراجعة الذكية والتوجيه -->
+          <div id="q-feedback-card" class="feedback-card">
+            <div class="feedback-header">
+              <h4 id="feedback-title">عنوان النتيجة</h4>
+            </div>
+            <div class="feedback-body">
+              <p id="feedback-message">نص الرسالة</p>
+              <div id="feedback-explanation" class="feedback-explanation"></div>
+            </div>
+            <div class="feedback-footer">
+              <button id="feedback-btn-next" class="secondary-btn">
+                متابعة ⬅️
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         4. شاشة النهاية: البطاقة الختامية الأنيقة (Final Closing Card)
+         ============================================================== -->
+    <section id="final-screen" class="screen-view">
+      <div class="final-celebration-container">
+        
+        <div class="celebration-banner-hero">
+          <div class="celebration-icon-anim">🎉</div>
+          <h2>تهانينا اكتمال المسابقة بنجاح!</h2>
+          <p id="final-score-summary">تمت الإجابة على جميع أسئلة المسابقة التاريخية</p>
+        </div>
+
+        <!-- البطاقة الختامية الأنيقة المعتمدة -->
+        <div class="elegant-closing-card">
+          <div class="closing-card-top-decor">
+            <span class="decor-symbol">❖</span>
+            <span class="decor-line"></span>
+            <span class="decor-symbol">❖</span>
+          </div>
+
+          <div class="closing-card-header">
+            <div class="closing-emblem">🌴</div>
+            <h3 class="closing-platform-title">منصة المسابقة التفاعلية للتاريخ السعودي</h3>
+          </div>
+
+          <div class="closing-card-content">
+            <div class="closing-info-item student-item">
+              <div class="info-label">عمل الطالبات:</div>
+              <div class="info-value highlight-student">
+                البتول الهاجري ، زينب العساكر
+                <span class="grade-subtext">(الصف السادس الابتدائي)</span>
+              </div>
+            </div>
+
+            <div class="closing-divider"></div>
+
+            <div class="closing-info-item teacher-item">
+              <div class="info-label">بإشراف المعلمة:</div>
+              <div class="info-value">خديجة الرضي</div>
+            </div>
+
+            <div class="closing-divider"></div>
+
+            <div class="closing-info-item principal-item">
+              <div class="info-label">مديرة المدرسة:</div>
+              <div class="info-value">أفراح القطان</div>
+            </div>
+          </div>
+
+          <div class="closing-card-footer">
+            <div class="closing-stamp">معتمد ✨</div>
+          </div>
+        </div>
+
+        <!-- زر إعادة المسابقة -->
+        <div class="final-actions-panel">
+          <button id="btn-restart-quiz" class="primary-btn" style="background: linear-gradient(135deg, var(--pastel-sky), #3182CE);">
+            <span>🔄 خوض المسابقة من جديد</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!-- سكربتات التطبيق المنظمة -->
+  <script>
+/**
+ * بنك الأسئلة لمسابقة التاريخ السعودي التفاعلية
+ * مخصص لطالبات الصف السادس الابتدائي
+ */
+const quizQuestions = [
+  {
+    id: 1,
+    number: 1,
+    title: "سؤال 1",
+    question: "متى تأسست الدولة السعودية الأولى؟",
+    options: ["1139", "850", "1218", "1226"],
+    correctAnswer: "1139",
+    colorTheme: {
+      primary: "#85BDBF", // Pastel teal
+      light: "#E3F4F4",
+      accent: "#4A8B8E"
+    },
+    hint: "تأسست في القرن الثاني عشر الهجري على يد الإمام محمد بن سعود رحمه الله.",
+    explanation: "أحسنتِ! تأسست الدولة السعودية الأولى عام 1139هـ (1744م) عندما تولى الإمام محمد بن سعود إمارة الدرعية."
+  },
+  {
+    id: 2,
+    number: 2,
+    title: "سؤال 2",
+    question: "معركة الرس في القصيم في عام :",
+    options: ["1230", "1228", "1233", "1232"],
+    correctAnswer: "1232",
+    colorTheme: {
+      primary: "#F5A898", // Pastel coral
+      light: "#FDECE8",
+      accent: "#C66552"
+    },
+    hint: "وقعت في أواخر عهد الدولة السعودية الأولى في القصيم.",
+    explanation: "إجابة بارعة! صمد أهالي الرس ببسولة وشجاعة فائقة ضد قوات المعتدين في عام 1232هـ."
+  },
+  {
+    id: 3,
+    number: 3,
+    title: "سؤال 3",
+    question: "حاصرت القوات العثمانية الدرعية:",
+    options: ["ثلاثة أيام", "شهر واحد", "ثلاثة أشهر ونصف", "ستة أشهر"],
+    correctAnswer: "ستة أشهر",
+    colorTheme: {
+      primary: "#A393BF", // Pastel purple
+      light: "#EFEAF6",
+      accent: "#6B588E"
+    },
+    hint: "حصار طويل استمر نصف عام وسطر فيه الأبطال أعظم ملاحم الصمود.",
+    explanation: "ممتازة! استمر حصار الدرعية التاريخي ستة أشهر كاملة أظهر فيها أبطالنا شجاعة وتضحية لا تُنسى."
+  },
+  {
+    id: 4,
+    number: 4,
+    title: "سؤال 4",
+    question: "توفي الإمام عبد العزيز بن محمد بن سعود بعد نحو ........سنة من الحكم ،",
+    options: ["عشرين", "ثلاثين", "أربعين", "خمسين"],
+    correctAnswer: "أربعين",
+    colorTheme: {
+      primary: "#F8B179", // Pastel peach
+      light: "#FDF0E6",
+      accent: "#C96D29"
+    },
+    hint: "فترة حكم طويلة وحافلة بالإنجازات والعدل تجاوزت ثلاثة عقود.",
+    explanation: "رائعة! استمر عهد الإمام عبدالعزيز بن محمد نحو أربعين سنة من الحكم والاستقرار والازدهار."
+  },
+  {
+    id: 5,
+    number: 5,
+    title: "سؤال 5",
+    question: "من هي البطلة السعودية التي أدارت الدفاع عن تربة وأخفت خبر وفاة زوجها ؟",
+    options: ["موضي بنت ابي وهطان", "غالية البقمية", "الجوهرة بنت عبدالله", "سارة بنت احمد"],
+    correctAnswer: "غالية البقمية",
+    colorTheme: {
+      primary: "#94C973", // Pastel sage green
+      light: "#EEF7E8",
+      accent: "#4F862F"
+    },
+    hint: "بطلة سعودية خالدة اشتهرت بحنكتها القيادية وشجاعتها في معركة تربة.",
+    explanation: "فخر وعزة! هي البطلة غالية البقمية التي خلد التاريخ شجاعتها وإدارتها الحكيمة للدفاع عن تربة."
+  },
+  {
+    id: 6,
+    number: 6,
+    title: "سؤال 6",
+    question: "بماذا لقب الإمام سعود بن عبدالعزيز بسبب وصول الدولة في عهده إلى أقصى نطاق لها ؟",
+    options: ["سعود الكبير", "المؤسس", "سعود الأول", "الحازم"],
+    correctAnswer: "سعود الكبير",
+    colorTheme: {
+      primary: "#E29578", // Pastel terracotta
+      light: "#FBECE6",
+      accent: "#A85333"
+    },
+    hint: "لقب يعكس عظمة واتساع رقعة الدولة السعودية في عصره الذهبي.",
+    explanation: "مبدعة! لُقب بـ «سعود الكبير» لاتساع مساحة الدولة واستتباب الأمن والقوة في عهده الميمون."
+  },
+  {
+    id: 7,
+    number: 7,
+    title: "سؤال 7",
+    question: "إلى أين نقل الإمام عبدالله بن سعود بعد استسلامه الدرعية ؟",
+    options: ["إلى المدينة المنورة ثم مكة", "إلى بغداد ثم الشام", "إلى جدة ثم اليمن", "إلى القاهرة ثم إسطنبول"],
+    correctAnswer: "إلى القاهرة ثم إسطنبول",
+    colorTheme: {
+      primary: "#6CA0DC", // Pastel soft blue
+      light: "#E4F0FB",
+      accent: "#2A64A7"
+    },
+    hint: "نُقل عبر العاصمة المصرية أولاً ثم إلى عاصمة الدولة العثمانية.",
+    explanation: "صحيح تماماً! نُقل الإمام عبدالله بن سعود فداءً لأهل الدرعية إلى القاهرة ثم إلى إسطنبول."
+  },
+  {
+    id: 8,
+    number: 8,
+    title: "سؤال 8",
+    question: "أين يقع قصر سلوى الذي أسسه الإمام عبدالعزيز بن محمد ؟",
+    options: ["في حي البجيري", "في حي الطريف بالدرعية", "في الرياض", "في العيينة"],
+    correctAnswer: "في حي الطريف بالدرعية",
+    colorTheme: {
+      primary: "#D4A373", // Pastel warm sand
+      light: "#F7EFE8",
+      accent: "#8B5E34"
+    },
+    hint: "يقع في الحي التاريخي الشهير بالدرعية والمُدرج ضمن قائمة التراث العالمي لليونسكو.",
+    explanation: "عبقرية تاريخية! يقع قصر سلوى الشامخ في حي الطريف بالدرعية، وهو مقر حكم أئمة الدولة السعودية الأولى."
+  }
+];
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = quizQuestions;
+}
+
+</script>
+  <script>
+/**
+ * نظام المؤثرات الصوتية التفاعلية للمسابقة
+ * مبني بالكامل على Web Audio API ليعمل في أي متصفح دون الحاجة لتحميل ملفات صوتية خارجية
+ */
+class SoundEffects {
+  constructor() {
+    this.audioCtx = null;
+    this.isMuted = false;
+    this.initContext();
+  }
+
+  initContext() {
+    if (!this.audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      this.audioCtx = new AudioContextClass();
+    }
+  }
+
+  ensureActive() {
+    this.initContext();
+    if (this.audioCtx && this.audioCtx.state === 'suspended') {
+      this.audioCtx.resume();
+    }
+  }
+
+  toggleMute() {
+    this.isMuted = !this.isMuted;
+    return this.isMuted;
+  }
+
+  // صوت النقر الخفيف
+  playClick() {
+    if (this.isMuted) return;
+    this.ensureActive();
+    if (!this.audioCtx) return;
+
+    try {
+      const osc = this.audioCtx.createOscillator();
+      const gain = this.audioCtx.createGain();
+      const now = this.audioCtx.currentTime;
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(450, now);
+      osc.frequency.exponentialRampToValueAtTime(700, now + 0.06);
+
+      gain.gain.setValueAtTime(0.18, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+
+      osc.connect(gain);
+      gain.connect(this.audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.08);
+    } catch (e) {
+      console.warn('Audio play error:', e);
+    }
+  }
+
+  // صوت طقطقة عجلة الحظ أثناء الدوران
+  playTick() {
+    if (this.isMuted) return;
+    this.ensureActive();
+    if (!this.audioCtx) return;
+
+    try {
+      const osc = this.audioCtx.createOscillator();
+      const gain = this.audioCtx.createGain();
+      const now = this.audioCtx.currentTime;
+
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(850, now);
+      osc.frequency.exponentialRampToValueAtTime(320, now + 0.035);
+
+      gain.gain.setValueAtTime(0.15, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+
+      osc.connect(gain);
+      gain.connect(this.audioCtx.destination);
+
+      osc.start(now);
+      osc.stop(now + 0.04);
+    } catch (e) {
+      console.warn('Tick play error:', e);
+    }
+  }
+
+  // صوت مميز عند توقف العجلة على السؤال
+  playWheelStop() {
+    if (this.isMuted) return;
+    this.ensureActive();
+    if (!this.audioCtx) return;
+
+    try {
+      const now = this.audioCtx.currentTime;
+      [784, 1046.5].forEach((freq, idx) => {
+        const osc = this.audioCtx.createOscillator();
+        const gain = this.audioCtx.createGain();
+        const t = now + idx * 0.08;
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, t);
+
+        gain.gain.setValueAtTime(0.001, t);
+        gain.gain.linearRampToValueAtTime(0.22, t + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, t + 0.35);
+
+        osc.connect(gain);
+        gain.connect(this.audioCtx.destination);
+
+        osc.start(t);
+        osc.stop(t + 0.35);
+      });
+    } catch (e) {
+      console.warn('Wheel stop audio error:', e);
+    }
+  }
+
+  // صوت الإجابة الصحيحة المبهج (نغمات احتفالية متتالية)
+  playCorrect() {
+    if (this.isMuted) return;
+    this.ensureActive();
+    if (!this.audioCtx) return;
+
+    try {
+      const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6 (نغمات بهجة وفرح)
+      const now = this.audioCtx.currentTime;
+
+      notes.forEach((freq, index) => {
+        const osc = this.audioCtx.createOscillator();
+        const gain = this.audioCtx.createGain();
+        const noteStart = now + (index * 0.1);
+        const noteEnd = noteStart + 0.35;
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(freq, noteStart);
+
+        gain.gain.setValueAtTime(0.001, noteStart);
+        gain.gain.linearRampToValueAtTime(0.25, noteStart + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, noteEnd);
+
+        osc.connect(gain);
+        gain.connect(this.audioCtx.destination);
+
+        osc.start(noteStart);
+        osc.stop(noteEnd);
+      });
+    } catch (e) {
+      console.warn('Audio play error:', e);
+    }
+  }
+
+  // صوت تشجيعي لطيف عند الخطأ للمحاولة الثانية (نغمة هادئة لا تحبط الطالبة)
+  playWrong() {
+    if (this.isMuted) return;
+    this.ensureActive();
+    if (!this.audioCtx) return;
+
+    try {
+      const now = this.audioCtx.currentTime;
+      const notes = [392.00, 329.63]; // G4 to E4 (نغمتان هادئتان)
+
+      notes.forEach((freq, index) => {
+        const osc = this.audioCtx.createOscillator();
+        const gain = this.audioCtx.createGain();
+        const noteStart = now + (index * 0.14);
+        const noteEnd = noteStart + 0.28;
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, noteStart);
+
+        gain.gain.setValueAtTime(0.001, noteStart);
+        gain.gain.linearRampToValueAtTime(0.18, noteStart + 0.04);
+        gain.gain.exponentialRampToValueAtTime(0.001, noteEnd);
+
+        osc.connect(gain);
+        gain.connect(this.audioCtx.destination);
+
+        osc.start(noteStart);
+        osc.stop(noteEnd);
+      });
+    } catch (e) {
+      console.warn('Audio play error:', e);
+    }
+  }
+
+  // صوت فوز وتكريم ختامي فاخر (Fanfare)
+  playFanfare() {
+    if (this.isMuted) return;
+    this.ensureActive();
+    if (!this.audioCtx) return;
+
+    try {
+      const melody = [
+        { f: 523.25, d: 0.15 }, // C5
+        { f: 659.25, d: 0.15 }, // E5
+        { f: 783.99, d: 0.15 }, // G5
+        { f: 1046.5, d: 0.35 }, // C6
+        { f: 880.00, d: 0.15 }, // A5
+        { f: 1046.5, d: 0.60 }  // C6 طويلة
+      ];
+
+      let startTime = this.audioCtx.currentTime + 0.05;
+
+      melody.forEach(item => {
+        const osc = this.audioCtx.createOscillator();
+        const gain = this.audioCtx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(item.f, startTime);
+
+        gain.gain.setValueAtTime(0.001, startTime);
+        gain.gain.linearRampToValueAtTime(0.28, startTime + 0.03);
+        gain.gain.exponentialRampToValueAtTime(0.001, startTime + item.d + 0.05);
+
+        osc.connect(gain);
+        gain.connect(this.audioCtx.destination);
+
+        osc.start(startTime);
+        osc.stop(startTime + item.d + 0.05);
+
+        startTime += item.d;
+      });
+    } catch (e) {
+      console.warn('Audio play error:', e);
+    }
+  }
+}
+
+// تصدير كائن الصوت العام
+const soundSystem = new SoundEffects();
+
+</script>
+  <script>
+/**
+ * محرك الاحتفال الرقمي: قصاصات ملونة (Confetti) وبالونات باستيل طافية (Pastel Balloons)
+ */
+class CelebrationEffects {
+  constructor() {
+    this.canvas = null;
+    this.ctx = null;
+    this.particles = [];
+    this.balloons = [];
+    this.animationId = null;
+    this.isActive = false;
+
+    // تشكيلة ألوان باستيل مبهجة
+    this.pastelColors = [
+      '#FFB7B2', '#FFDAC1', '#E2F0CB', '#B5EAD7',
+      '#C7CEEA', '#F3C4FB', '#FF9AA2', '#85E3FF',
+      '#ACE7FF', '#FFDAC1', '#D0F4DE', '#A9DEF9'
+    ];
+  }
+
+  initCanvas() {
+    if (!this.canvas) {
+      this.canvas = document.getElementById('celebration-canvas');
+      if (!this.canvas) {
+        this.canvas = document.createElement('canvas');
+        this.canvas.id = 'celebration-canvas';
+        document.body.appendChild(this.canvas);
+      }
+      this.ctx = this.canvas.getContext('2d');
+      this.resize();
+      window.addEventListener('resize', () => this.resize());
+    }
+  }
+
+  resize() {
+    if (this.canvas) {
+      this.canvas.width = window.innerWidth;
+      this.canvas.height = window.innerHeight;
+    }
+  }
+
+  // إطلاق دفعة قصاصات صغيرة احتفالاً بالإجابة الصحيحة
+  burstAt(x, y) {
+    this.initCanvas();
+    const count = 45;
+    for (let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const speed = Math.random() * 8 + 3;
+      this.particles.push({
+        x: x || window.innerWidth / 2,
+        y: y || window.innerHeight / 2,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 2,
+        size: Math.random() * 8 + 6,
+        color: this.pastelColors[Math.floor(Math.random() * this.pastelColors.length)],
+        rotation: Math.random() * 360,
+        rotationSpeed: (Math.random() - 0.5) * 12,
+        shape: Math.random() > 0.4 ? 'rect' : 'circle',
+        alpha: 1,
+        decay: Math.random() * 0.015 + 0.012
+      });
+    }
+
+    if (!this.isActive) {
+      this.isActive = true;
+      this.animate();
+    }
+  }
+
+  // إطلاق احتفال متكامل وكبير للشاشة الختامية (قصاصات + بالونات)
+  startGrandCelebration() {
+    this.initCanvas();
+    this.particles = [];
+    this.balloons = [];
+    this.isActive = true;
+
+    // إضافة بالونات طافية للأعلى
+    const balloonCount = 18;
+    for (let i = 0; i < balloonCount; i++) {
+      this.balloons.push({
+        x: Math.random() * window.innerWidth,
+        y: window.innerHeight + Math.random() * 300,
+        vy: -(Math.random() * 1.6 + 1.2),
+        vx: Math.sin(i) * 0.5,
+        radius: Math.random() * 16 + 22,
+        color: this.pastelColors[Math.floor(Math.random() * this.pastelColors.length)],
+        stringLength: Math.random() * 30 + 40,
+        swaySpeed: Math.random() * 0.04 + 0.02,
+        swayOffset: Math.random() * 10
+      });
+    }
+
+    // إضافة قصاصات مستمرة
+    const confettiCount = 100;
+    for (let i = 0; i < confettiCount; i++) {
+      this.particles.push(this.createConfettiParticle(true));
+    }
+
+    this.animate();
+  }
+
+  createConfettiParticle(isInitial = false) {
+    return {
+      x: Math.random() * window.innerWidth,
+      y: isInitial ? Math.random() * window.innerHeight : -20,
+      vx: (Math.random() - 0.5) * 3,
+      vy: Math.random() * 3 + 2,
+      size: Math.random() * 9 + 6,
+      color: this.pastelColors[Math.floor(Math.random() * this.pastelColors.length)],
+      rotation: Math.random() * 360,
+      rotationSpeed: (Math.random() - 0.5) * 8,
+      shape: Math.random() > 0.3 ? 'rect' : 'circle',
+      alpha: 1,
+      decay: 0 // مستمر أثناء الاحتفال النهائي
+    };
+  }
+
+  stop() {
+    this.isActive = false;
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+      this.animationId = null;
+    }
+    if (this.ctx && this.canvas) {
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+    this.particles = [];
+    this.balloons = [];
+  }
+
+  animate() {
+    if (!this.isActive) return;
+
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+    // رسم وتحديث البالونات
+    for (let i = 0; i < this.balloons.length; i++) {
+      const b = this.balloons[i];
+      b.y += b.vy;
+      b.x += Math.sin(Date.now() * 0.002 * b.swaySpeed + b.swayOffset) * 0.8;
+
+      // إذا تجاوزت أعلى الشاشة نعيد تدويرها من الأسفل
+      if (b.y + b.radius < -100) {
+        b.y = window.innerHeight + 50;
+        b.x = Math.random() * window.innerWidth;
+      }
+
+      this.drawBalloon(b);
+    }
+
+    // رسم وتحديث القصاصات (Confetti)
+    for (let i = this.particles.length - 1; i >= 0; i--) {
+      const p = this.particles[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.rotation += p.rotationSpeed;
+
+      if (p.decay > 0) {
+        p.alpha -= p.decay;
+        if (p.alpha <= 0) {
+          this.particles.splice(i, 1);
+          continue;
+        }
+      } else {
+        // قصاصات مستمرة للشاشة الختامية
+        if (p.y > window.innerHeight + 20) {
+          p.y = -20;
+          p.x = Math.random() * window.innerWidth;
+        }
+      }
+
+      this.ctx.save();
+      this.ctx.globalAlpha = Math.max(0, p.alpha);
+      this.ctx.translate(p.x, p.y);
+      this.ctx.rotate((p.rotation * Math.PI) / 180);
+      this.ctx.fillStyle = p.color;
+
+      if (p.shape === 'circle') {
+        this.ctx.beginPath();
+        this.ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+        this.ctx.fill();
+      } else {
+        this.ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size * 0.7);
+      }
+      this.ctx.restore();
+    }
+
+    if (this.particles.length > 0 || this.balloons.length > 0) {
+      this.animationId = requestAnimationFrame(() => this.animate());
+    } else {
+      this.isActive = false;
+    }
+  }
+
+  drawBalloon(b) {
+    this.ctx.save();
+    this.ctx.fillStyle = b.color;
+
+    // جسم البالون (بيضاوي لطيف)
+    this.ctx.beginPath();
+    this.ctx.ellipse(b.x, b.y, b.radius * 0.85, b.radius * 1.1, 0, 0, Math.PI * 2);
+    this.ctx.fill();
+
+    // لمعة البالون الرقيقة
+    this.ctx.fillStyle = 'rgba(255, 255, 255, 0.45)';
+    this.ctx.beginPath();
+    this.ctx.ellipse(b.x - b.radius * 0.3, b.y - b.radius * 0.35, b.radius * 0.22, b.radius * 0.38, -Math.PI / 6, 0, Math.PI * 2);
+    this.ctx.fill();
+
+    // عقدة البالون
+    this.ctx.fillStyle = b.color;
+    this.ctx.beginPath();
+    this.ctx.moveTo(b.x - 4, b.y + b.radius * 1.08);
+    this.ctx.lineTo(b.x + 4, b.y + b.radius * 1.08);
+    this.ctx.lineTo(b.x, b.y + b.radius * 1.18);
+    this.ctx.closePath();
+    this.ctx.fill();
+
+    // خيط البالون
+    this.ctx.strokeStyle = 'rgba(160, 160, 160, 0.6)';
+    this.ctx.lineWidth = 1.2;
+    this.ctx.beginPath();
+    this.ctx.moveTo(b.x, b.y + b.radius * 1.15);
+    this.ctx.quadraticCurveTo(
+      b.x + Math.sin(b.y * 0.05) * 8,
+      b.y + b.radius + b.stringLength * 0.5,
+      b.x + Math.cos(b.y * 0.05) * 5,
+      b.y + b.radius + b.stringLength
+    );
+    this.ctx.stroke();
+
+    this.ctx.restore();
+  }
+}
+
+const celebration = new CelebrationEffects();
+
+</script>
+  <script>
+/**
+ * المنطق التفاعلي الرئيسي لمنصة مسابقة التاريخ السعودي
+ * مبني بالكامل على النسخة الأصلية المتقنة والمضبوطة (شبكة الأسئلة 1 - 8)
+ * مع صفحة ترحيبية موجزة وبطاقة ختامية أنيقة لأسماء الطالبتين والمعلمة والمديرة.
+ */
+
+document.addEventListener('DOMContentLoaded', () => {
+  // حالة التطبيق (State Management)
+  const state = {
+    answeredQuestions: new Set(), // أرقام الأسئلة المكتملة
+    currentQuestionId: null,
+    currentAttempt: 1, // 1 أو 2
+    attemptsPerQuestion: {},
+    correctCount: 0,
+    isSoundMuted: false
+  };
+
+  // عناصر واجهة المستخدم
+  const screens = {
+    landing: document.getElementById('landing-screen'),
+    board: document.getElementById('board-screen'),
+    question: document.getElementById('question-screen'),
+    final: document.getElementById('final-screen')
+  };
+
+  const nav = {
+    btnStart: document.getElementById('btn-start-quiz'),
+    btnBackToBoard: document.getElementById('btn-back-to-board'),
+    btnRandomPick: document.getElementById('btn-random-pick'),
+    btnRestart: document.getElementById('btn-restart-quiz'),
+    btnSoundToggle: document.getElementById('sound-toggle-btn'),
+    boardProgressText: document.getElementById('board-progress-text'),
+    boardProgressBar: document.getElementById('board-progress-bar'),
+    questionsGrid: document.getElementById('questions-grid')
+  };
+
+  // عناصر صفحة السؤال
+  const qElements = {
+    badge: document.getElementById('q-number-badge'),
+    title: document.getElementById('q-title-text'),
+    attemptBadge: document.getElementById('q-attempt-badge'),
+    optionsContainer: document.getElementById('q-options-container'),
+    feedbackCard: document.getElementById('q-feedback-card'),
+    feedbackTitle: document.getElementById('feedback-title'),
+    feedbackMessage: document.getElementById('feedback-message'),
+    feedbackExplanation: document.getElementById('feedback-explanation'),
+    feedbackBtnNext: document.getElementById('feedback-btn-next')
+  };
+
+  // ===================== وظائف التنقل بين الشاشات =====================
+  function showScreen(screenKey) {
+    soundSystem.playClick();
+    Object.values(screens).forEach(screen => {
+      screen.classList.remove('active');
+    });
+
+    if (screens[screenKey]) {
+      screens[screenKey].classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    if (screenKey === 'board') {
+      renderBoard();
+      celebration.stop();
+    } else if (screenKey === 'final') {
+      renderFinalScreen();
+    }
+  }
+
+  // ===================== تحديث ورسم شبكة الأسئلة الأصلية =====================
+  function renderBoard() {
+    nav.questionsGrid.innerHTML = '';
+    const total = quizQuestions.length;
+    const completedCount = state.answeredQuestions.size;
+
+    // تحديث شريط التقدم
+    const percent = Math.round((completedCount / total) * 100);
+    nav.boardProgressText.textContent = `تم إنجاز ${completedCount} من أصل ${total} أسئلة (${percent}%)`;
+    nav.boardProgressBar.style.width = `${percent}%`;
+
+    quizQuestions.forEach(q => {
+      const isCompleted = state.answeredQuestions.has(q.id);
+      const card = document.createElement('div');
+      card.className = `question-card ${isCompleted ? 'completed disabled' : 'available'}`;
+      card.setAttribute('data-id', q.id);
+      card.style.setProperty('--card-theme-color', q.colorTheme.primary);
+      card.style.setProperty('--card-light-color', q.colorTheme.light);
+      card.style.setProperty('--card-accent-color', q.colorTheme.accent);
+
+      const statusBadge = isCompleted 
+        ? `<div class="card-status-pill completed"><span class="check-icon">✓</span> مكتمل</div>`
+        : `<div class="card-status-pill available"><span class="star-icon">★</span> جاهز</div>`;
+
+      card.innerHTML = `
+        <div class="card-inner">
+          <div class="card-number-circle">${q.number}</div>
+          <div class="card-info">
+            <h3 class="card-title">${q.title}</h3>
+            <p class="card-subtitle">${isCompleted ? 'تم إنجاز السؤال وتثبيته' : 'انقري لبدء السؤال'}</p>
+          </div>
+          ${statusBadge}
+        </div>
+      `;
+
+      if (!isCompleted) {
+        card.addEventListener('click', () => {
+          openQuestion(q.id);
+        });
+      }
+
+      nav.questionsGrid.appendChild(card);
+    });
+
+    // إذا تم إنجاز جميع الأسئلة ننتقل تلقائياً للشاشة النهائية
+    if (completedCount === total) {
+      setTimeout(() => {
+        showScreen('final');
+      }, 900);
+    }
+  }
+
+  // زر الاختيار العشوائي الذكي
+  if (nav.btnRandomPick) {
+    nav.btnRandomPick.addEventListener('click', () => {
+      const available = quizQuestions.filter(q => !state.answeredQuestions.has(q.id));
+      if (available.length === 0) {
+        showScreen('final');
+        return;
+      }
+      soundSystem.playClick();
+      const randomQ = available[Math.floor(Math.random() * available.length)];
+      openQuestion(randomQ.id);
+    });
+  }
+
+  // ===================== فتح السؤال المختار =====================
+  function openQuestion(questionId) {
+    const q = quizQuestions.find(item => item.id === questionId);
+    if (!q) return;
+
+    state.currentQuestionId = questionId;
+    state.currentAttempt = 1;
+
+    // إعداد بطاقة السؤال
+    qElements.badge.textContent = `السؤال رقم ${q.number}`;
+    qElements.badge.style.backgroundColor = q.colorTheme.primary;
+    qElements.title.textContent = q.question;
+    updateAttemptBadge(1);
+
+    // إخفاء بطاقة التغذية الراجعة
+    qElements.feedbackCard.classList.remove('show', 'correct', 'incorrect-retry', 'incorrect-final');
+    qElements.feedbackCard.style.display = 'none';
+
+    // توليد أزرار الخيارات الأربعة
+    qElements.optionsContainer.innerHTML = '';
+    const letters = ['أ', 'ب', 'ج', 'د'];
+
+    q.options.forEach((optText, index) => {
+      const btn = document.createElement('button');
+      btn.className = 'option-btn';
+      btn.setAttribute('data-value', optText);
+      btn.innerHTML = `
+        <span class="option-letter">${letters[index]}</span>
+        <span class="option-text">${optText}</span>
+      `;
+
+      btn.addEventListener('click', (e) => {
+        handleOptionClick(btn, optText, q, e);
+      });
+
+      qElements.optionsContainer.appendChild(btn);
+    });
+
+    showScreen('question');
+  }
+
+  function updateAttemptBadge(attemptNumber) {
+    if (attemptNumber === 1) {
+      qElements.attemptBadge.innerHTML = `<span class="pulse-dot"></span> المحاولة الأولى (لديكِ محاولتان)`;
+      qElements.attemptBadge.className = 'attempt-badge attempt-first';
+    } else {
+      qElements.attemptBadge.innerHTML = `<span class="pulse-dot warning"></span> المحاولة الثانية والأخيرة 🎯`;
+      qElements.attemptBadge.className = 'attempt-badge attempt-second';
+    }
+  }
+
+  // ===================== معالجة اختيار الإجابة =====================
+  function handleOptionClick(btnElement, selectedValue, question, event) {
+    if (btnElement.disabled) return;
+
+    soundSystem.playClick();
+    const isCorrect = (selectedValue.trim() === question.correctAnswer.trim());
+
+    if (isCorrect) {
+      // ----------------- إجابة صحيحة -----------------
+      btnElement.classList.add('correct');
+      soundSystem.playCorrect();
+
+      const rect = btnElement.getBoundingClientRect();
+      celebration.burstAt(rect.left + rect.width / 2, rect.top + rect.height / 2);
+
+      disableAllOptions();
+
+      state.answeredQuestions.add(question.id);
+      state.attemptsPerQuestion[question.id] = {
+        attempts: state.currentAttempt,
+        answeredCorrectly: true
+      };
+      state.correctCount++;
+
+      showFeedback({
+        type: 'correct',
+        title: 'أحسنتِ وأبدعتِ يا بطلة! 🌟',
+        message: 'إجابة صحيحة وموفقة بارك الله فيكِ.',
+        explanation: question.explanation,
+        btnText: 'العودة لشبكة الأسئلة ⬅️'
+      });
+
+    } else {
+      // ----------------- إجابة خاطئة -----------------
+      soundSystem.playWrong();
+      btnElement.classList.add('incorrect');
+      btnElement.disabled = true;
+
+      if (state.currentAttempt === 1) {
+        // المحاولة الأولى: إعطاء محاولة ثانية من نفس الشاشة
+        state.currentAttempt = 2;
+        updateAttemptBadge(2);
+
+        showFeedback({
+          type: 'incorrect-retry',
+          title: 'حاولي مرة أخرى يا بطلة! ✨',
+          message: 'الإجابة المختارة غير صحيحة، أمامكِ فرصة ثانية لاختيار الإجابة الصحيحة.',
+          explanation: question.hint ? `💡 تلميح لمساعدتكِ: ${question.hint}` : '',
+          btnText: 'متابعة المحاولة الثانية 🎯'
+        });
+
+      } else {
+        // المحاولة الثانية والأخيرة
+        disableAllOptions();
+        highlightCorrectOption(question.correctAnswer);
+
+        state.answeredQuestions.add(question.id);
+        state.attemptsPerQuestion[question.id] = {
+          attempts: 2,
+          answeredCorrectly: false
+        };
+
+        showFeedback({
+          type: 'incorrect-final',
+          title: 'محاولة طيبة يا بطلة! 🤍',
+          message: `الإجابة الصحيحة هي: «${question.correctAnswer}»`,
+          explanation: question.explanation,
+          btnText: 'العودة لشبكة الأسئلة ⬅️'
+        });
+      }
+    }
+  }
+
+  function disableAllOptions() {
+    const buttons = qElements.optionsContainer.querySelectorAll('.option-btn');
+    buttons.forEach(btn => btn.disabled = true);
+  }
+
+  function highlightCorrectOption(correctVal) {
+    const buttons = qElements.optionsContainer.querySelectorAll('.option-btn');
+    buttons.forEach(btn => {
+      if (btn.getAttribute('data-value').trim() === correctVal.trim()) {
+        btn.classList.add('correct');
+      }
+    });
+  }
+
+  function showFeedback({ type, title, message, explanation, btnText }) {
+    qElements.feedbackCard.style.display = 'block';
+    qElements.feedbackCard.className = `feedback-card show ${type}`;
+    qElements.feedbackTitle.innerHTML = title;
+    qElements.feedbackMessage.textContent = message;
+    qElements.feedbackExplanation.textContent = explanation || '';
+    qElements.feedbackBtnNext.textContent = btnText;
+
+    qElements.feedbackCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  qElements.feedbackBtnNext.addEventListener('click', () => {
+    soundSystem.playClick();
+    if (qElements.feedbackCard.classList.contains('incorrect-retry')) {
+      qElements.feedbackCard.classList.remove('show');
+      setTimeout(() => {
+        qElements.feedbackCard.style.display = 'none';
+      }, 300);
+    } else {
+      if (state.answeredQuestions.size === quizQuestions.length) {
+        showScreen('final');
+      } else {
+        showScreen('board');
+      }
+    }
+  });
+
+  // ===================== شاشة النهاية: البطاقة الختامية الأنيقة =====================
+  function renderFinalScreen() {
+    soundSystem.playFanfare();
+    celebration.startGrandCelebration();
+
+    const scoreSummary = document.getElementById('final-score-summary');
+    if (scoreSummary) {
+      scoreSummary.textContent = `أتممتِ بنجاح حل جميع الأسئلة الـ (${quizQuestions.length}) وحصلتِ على ${state.correctCount} إجابات صحيحة`;
+    }
+  }
+
+  // ===================== ربط أزرار التحكم =====================
+  nav.btnSoundToggle.addEventListener('click', () => {
+    const muted = soundSystem.toggleMute();
+    nav.btnSoundToggle.innerHTML = muted 
+      ? '<span class="icon">🔇</span> كتم الصوت' 
+      : '<span class="icon">🔊</span> تشغيل الصوت';
+    nav.btnSoundToggle.classList.toggle('muted', muted);
+  });
+
+  nav.btnStart.addEventListener('click', () => {
+    showScreen('board');
+  });
+
+  nav.btnBackToBoard.addEventListener('click', () => {
+    showScreen('board');
+  });
+
+  nav.btnRestart.addEventListener('click', () => {
+    if (confirm('هل ترغبين في إعادة المسابقة وتصفير الأسئلة من البداية؟')) {
+      state.answeredQuestions.clear();
+      state.attemptsPerQuestion = {};
+      state.correctCount = 0;
+      state.currentQuestionId = null;
+      state.currentAttempt = 1;
+      celebration.stop();
+      showScreen('landing');
+    }
+  });
+
+  // تفعيل الشاشة الافتتاحية
+  showScreen('landing');
+});
+
+</script>
+</body>
+</html>
